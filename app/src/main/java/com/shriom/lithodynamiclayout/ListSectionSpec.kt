@@ -1,8 +1,6 @@
 package com.shriom.lithodynamiclayout
 
-import com.facebook.litho.Component
-import com.facebook.litho.ComponentContext
-import com.facebook.litho.annotations.OnCreateLayout
+import android.graphics.Color
 import com.facebook.litho.sections.Children
 import com.facebook.litho.sections.SectionContext
 import com.facebook.litho.sections.annotations.GroupSectionSpec
@@ -20,7 +18,13 @@ object ListSectionSpec {
             builder.child(
                 SingleComponentSection.create(c)
                     .key(i.toString())
-                    .component(ListItem.create(c).build())
+                    .component(
+                        ListItem.create(c)
+                            .color(if (i % 2 == 0) Color.WHITE else Color.LTGRAY)
+                            .title("$i Hello World")
+                            .subtitle("Litho tutorial")
+                            .build()
+                    )
             )
         }
         return builder.build()

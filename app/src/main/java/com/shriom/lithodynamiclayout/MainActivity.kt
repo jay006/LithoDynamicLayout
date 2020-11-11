@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         //Creating List of itmes
         val c  = ComponentContext(this)
         val recyclerComponent = RecyclerCollectionComponent.create(c)
-            .disablePTR(false)
+            .disablePTR(true)
             .section(ListSection.create(SectionContext(c)).build())
             .build()
         setContentView(LithoView.create(c, recyclerComponent))
